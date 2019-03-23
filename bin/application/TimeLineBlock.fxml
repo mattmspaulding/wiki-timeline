@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="710.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+   <children>
+      <Line endX="-100.0" endY="216.0" layoutX="450.0" layoutY="15.0" startX="-100.0" startY="-15.0" />
+      <Line endX="-107.0" endY="-1.0" layoutX="506.0" layoutY="116.0" startX="-137.0" startY="-1.0" />
+      <Circle fx:id="circle" fill="DODGERBLUE" layoutX="350.0" layoutY="118.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="date" alignment="CENTER" contentDisplay="CENTER" layoutX="209.0" layoutY="82.0" prefHeight="74.0" prefWidth="116.0" text="2011">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="sentence" layoutX="410.0" layoutY="-2.0" prefHeight="231.0" prefWidth="298.0" text="sentence about person's life" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>
