@@ -77,18 +77,13 @@ public class TimeLineController implements Initializable {
 			}
 		}
 		
-		
 		cleanText(timeLineYears, timeLineSentences);
 		sortArrays(timeLineYears, timeLineSentences);
 		
         // Add sentences to vbox as individual blocks.	
-        for(int i=0;i<timeLineSentences.size(); i++) {
-        	TimeLineBlockController timeLineBlockController = new TimeLineBlockController();
-        	timeLineBlockController.getDate().setText(timeLineYears.get(i).toString());
-        	timeLineBlockController.getSentence().setText(timeLineSentences.get(i));
-        	vb.getChildren().add(timeLineBlockController);
+		addBlocks(timeLineSentences.size(), timeLineSentences, timeLineYears);
         }
-    }
+    
      
     // Displays header name and short summary
     private void loadHeader(){
@@ -131,8 +126,6 @@ public class TimeLineController implements Initializable {
 			timeLineSentences.get(i).replaceAll("[^a-zA-Z0-9\\s+]", "");
 		}
 		
-		// Move sentences with dates before or after person's lifespan somewhere else.
-		
     }
     
     // Sorts arrays by the dates within them using Bubble sort.
@@ -142,7 +135,7 @@ public class TimeLineController implements Initializable {
     	String tempSentence;
     	do {
     		swap = false;
-    		for(int i = 0; i < timeLineYears.size()-1; i++) {
+    		for(int i = 0; i < timeLineYears.size() - 1; i++) {
     			if(timeLineYears.get(i) > timeLineYears.get(i+1)) {
     				tempYear = timeLineYears.get(i);
     				timeLineYears.set(i, timeLineYears.get(i+1));
@@ -156,5 +149,15 @@ public class TimeLineController implements Initializable {
     			}
     		}	
     	} while(swap);	
+    }
+    
+    // Dynamically adds timeline blocks, each consisiting of a year, and corresponding sentence.
+    private void addBlocks(int numOfBlocks, ArrayList<String> timeLineSentences, ArrayList<Integer> timeLineYears) {
+    	for(int i=0;i<numOfBlocks; i++) {
+        	TimeLineBlockController timeLineBlockController = new TimeLineBlockController();
+        	timeLineBlockController.getDate().setText(timeLineYears.get(i).toString());
+        	timeLineBlockController.getSentence().setText(timeLineSentences.get(i));
+        	vb.getChildren().add(timeLineBlockController);
+    	}
     }
 }

@@ -11,6 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import java.io.IOException;
@@ -21,8 +23,7 @@ import java.io.IOException;
  */
 public class MainController implements Initializable {
     
-    @FXML
-    private TextField wiki_link;
+    @FXML private TextField wiki_link;
     private String link;
     private TimeLineController timeline = new TimeLineController();
     
@@ -41,18 +42,12 @@ public class MainController implements Initializable {
         }catch(IOException e){
             System.out.print("Input not Valid!");
         }
-
-        // Set link and load new stage.
-        //timeline.setLink(link); 
         loadStage("TimeLineFXML.fxml");
     }
     
     private void loadStage(String fxml){
         
         try {
-            //AnchorPane newPane = FXMLLoader.load(getClass().getResource(fxml));
-            //rootAnchorPane.getChildren().setAll(newPane);
-            
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent root = loader.load();       
             timeline = (TimeLineController) loader.getController();
@@ -60,6 +55,7 @@ public class MainController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setFullScreen(true);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
