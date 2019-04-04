@@ -10,6 +10,7 @@ Converts a Person's Wikipedia Page into a Timeline
 * Sort dates happening before the year 0 (any BCE dates) properly
 * Ensure each block is relevant to the person's life -- test for keywords
 * Clean each sentence by removing Wikipedia's references (i.e. the bracketed numbers)
+* Change the color of each circle, for each block, based on the sentence's sentiment
 
 ## Libraries
 * JavaFX
